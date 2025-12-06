@@ -38,7 +38,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: ${{ github.action_path }}/scripts/wait-for-workflow.sh
+    - run: bash ./scripts/wait-for-workflow.sh
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
@@ -47,6 +47,6 @@ runs:
         MAX_WAIT_MINUTES: ${{ inputs.max_wait_minutes }}
         INTERVAL: ${{ inputs.interval }}
         TIMEOUT: ${{ inputs.timeout }}
-        ORG_NAME: ${{ inputs.organization }}
-        REPO_NAME: ${{ inputs.repository }}
+        ORG_NAME: ${{ inputs.org_name }}
+        REPO_NAME: ${{ inputs.repo_name }}
         REF: ${{ inputs.ref || github.ref }}
